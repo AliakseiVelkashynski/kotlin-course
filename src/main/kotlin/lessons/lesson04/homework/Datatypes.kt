@@ -1,6 +1,7 @@
 package org.example.lessons.lesson04.homework
 
 import java.lang.Boolean.FALSE
+import java.lang.Boolean.TRUE
 
 val v1: Int = 42
 val v2: Long = 98765432123456789L
@@ -33,16 +34,16 @@ val v28: Double = -273.15
 val v29: String = "SpaceX"
 val v30: Boolean = FALSE
 val v31: Double = 0.007
-val v32 = “🤯”
-val v33 = mapOf("true" to 2, "false" to 34)
-val v34 = ‘65535’
-val v35 = 72057594037927935L
-val v36 = 2.71828f
-val v37 = 101.0101
-val v38 = "Quantum Computing"
-val v39 = mapOf(2 to "true", 34 to "false")
-val v40 = 'x'
-val v41 = 314
-val v42 = 123456789123456789L
-val v43 = 6.626f
-val v44 = TRUE
+//val v32 = “🤯” - кавычки, неподдерживаемые kotlin + эмоджи
+val v33: Map<String, Int> = mapOf("true" to 2, "false" to 34)
+//val v34 = ‘65535’ - кавычки, неподдерживаемые kotlin
+val v35: Long = 72057594037927935L
+val v36: Float = 2.71828f
+val v37: Double = 101.0101
+val v38: String = "Quantum Computing"
+val v39: Map<Int, String> = mapOf(2 to "true", 34 to "false")
+val v40: Char = 'x'
+val v41: Int = 314
+val v42: Long = 123456789123456789L
+val v43: Float = 6.626f
+val v44: Boolean = TRUE
