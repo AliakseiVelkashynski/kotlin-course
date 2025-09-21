@@ -28,7 +28,27 @@ fun printTransportAdvice(distance: Double) {
     println("Для маршрута длиной $distance км рекомендуется: $advice")
 }
 
+fun countBonuses(sum: Int) {
+    val amountOfBonuses = when {
+        sum <= 1000 -> (sum / 100) * 2
+        else -> 20 + ((sum - 1000) / 100) * 3
+    }
+    println("За покупки стоимостью $sum рублей вы получаете следующее количество бонусов: $amountOfBonuses")
+}
+
+fun printFileType(extension: String) {
+
+    val fileType = when (extension) {
+        "txt", "doc", "docx" -> "Текстовый документ"
+        "jpg", "jpeg", "png", "gif" -> "Изображение"
+        "xls", "xlsx", "csv" -> "Таблица"
+        else -> "Неизвестный тип"
+    }
+
+    println("Расширение .$extension: $fileType")
+}
+
 
 fun main() {
-    printTransportAdvice(5.6)
+    printFileType("doc")
 }
