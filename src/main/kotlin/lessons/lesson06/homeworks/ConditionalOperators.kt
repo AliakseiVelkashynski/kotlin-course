@@ -79,6 +79,11 @@ fun recommendClothes(temperature: Int) {
     }
 }
 
-fun main() {
-    recommendClothes(36)
+fun checkAvailableCategories(age: Int) {
+    when {
+        age < 0 -> println("Ошибка: Возраст не может быть отрицательным")
+        age <= 9 -> println("Доступные категории: детские")
+        age < 18 -> println("Доступные категории: подростковые")
+        else -> println("Доступные категории: 18+")
+    }
 }
