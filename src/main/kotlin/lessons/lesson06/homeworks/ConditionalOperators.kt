@@ -48,7 +48,25 @@ fun printFileType(extension: String) {
     println("Расширение .$extension: $fileType")
 }
 
+fun convertTemperature(temp: Double, type: Char) {
+    when (type) {
+        'C' -> {
+            val converted = (temp * 9 / 5) + 32
+            print(converted)
+            print("F")
+        }
+        'F' -> {
+            val converted = (temp - 32) * 5 / 9
+            print(converted)
+            print("C")
+        }
+        else -> {
+            println("Ошибка: Неверная единица измерения. Используйте 'C' или 'F'")
+        }
+    }
+}
+
 
 fun main() {
-    printFileType("doc")
+    convertTemperature(100.1,'F')
 }
