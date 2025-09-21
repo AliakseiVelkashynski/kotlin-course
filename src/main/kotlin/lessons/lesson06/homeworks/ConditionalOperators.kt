@@ -66,7 +66,19 @@ fun convertTemperature(temp: Double, type: Char) {
     }
 }
 
+fun recommendClothes(temperature: Int) {
+    when {
+        temperature < -30 || temperature > 35 ->
+            println("При температуре $temperature°C рекомендуется не выходить из дома")
+        temperature < 10 ->
+            println("При температуре $temperature°C рекомендуется: куртка и шапка")
+        temperature <= 18 ->
+            println("При температуре $temperature°C рекомендуется: ветровка")
+        else ->
+            println("При температуре $temperature°C рекомендуется: футболка и шорты")
+    }
+}
 
 fun main() {
-    convertTemperature(100.1,'F')
+    recommendClothes(36)
 }
