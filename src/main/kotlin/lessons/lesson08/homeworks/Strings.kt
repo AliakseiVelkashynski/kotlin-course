@@ -78,7 +78,22 @@ fun transformEmail(email: String) {
     println(transformedEmail)
 }
 
+fun extractFileName(path: String) {
 
+    val parts = path.split('/')
+    println(parts[parts.size - 1])
+}
+
+fun createAcronym(phrase: String) {
+    var shortCut = ""
+    val splitPhrase = phrase.split(" ")
+
+    for (word in splitPhrase) {
+        shortCut += word[0]
+    }
+
+    println(shortCut.uppercase())
+}
 
 
 
