@@ -1,8 +1,6 @@
 package org.example.lessons.lesson09.homeworks
 
-fun main() {
-    findElementInArray(arrayOfStrings, "при")
-}
+//Работа с массивами Array
 
 //1. Создайте массив из 5 целых чисел и инициализируйте его значениями от 1 до 5.
 val numbers: Array<Int> = arrayOf(1, 2, 3, 4, 5)
@@ -100,7 +98,98 @@ fun findElementInArray(array: Array<String>, searchString: String) {
     }
 }
 
+//Работа со списками List
+//1. Создайте пустой неизменяемый список целых чисел.
+val emptyListOfInt: List<Int> = listOf()
 
+//2. Создайте неизменяемый список строк, содержащий три элемента (например, "Hello", "World", "Kotlin").
+val unmutableListOfStrings: List<String> = listOf("Hello", "World", "Kotlin")
 
+//3. Создайте изменяемый список целых чисел и инициализируйте его значениями от 1 до 5.
+val mutableListOfInt: MutableList<Int> = mutableListOf(1, 2, 3, 4, 5)
+
+//4. Имея изменяемый список целых чисел, добавьте в него новые элементы (например, 6, 7, 8).
+fun addIntToList() {
+    val listOfInt: MutableList<Int> = mutableListOf(1, 2, 3, 4, 5)
+    listOfInt.add(6)
+    listOfInt.add(7)
+    listOfInt.add(8)
+}
+
+//5. Имея изменяемый список строк, удалите из него определенный элемент (например, "World").
+fun removeStringFromList() {
+    val mutableListOfString: MutableList<String> = mutableListOf("Hello", "World", "Kotlin")
+    mutableListOfString.remove("World")
+}
+
+//6. Создайте список целых чисел и используйте цикл для вывода каждого элемента на экран.
+fun printIntElementsOfList() {
+    val listOfInt: List<Int> = listOf(1, 2, 3, 4, 5)
+    for (index in listOfInt.indices) {
+        println(listOfInt[index])
+    }
+}
+
+//7. Создайте список строк и получите из него второй элемент, используя его индекс.
+fun getSecondElementOfStringList() {
+    val listOfStrings: List<String> = listOf("Hello", "World", "Kotlin")
+    listOfStrings[1]
+}
+
+//8. Имея изменяемый список чисел, измените значение элемента на определенной позиции
+// (например, замените элемент с индексом 2 на новое значение).
+fun editListOfInt() {
+    val listOfInt: MutableList<Int> = mutableListOf(1, 2, 3, 4, 5)
+    listOfInt[2] = 6
+}
+
+//9. Создайте два списка строк и объедините их в один новый список, содержащий элементы обоих списков.
+// Реши задачу с помощью циклов.
+fun concatTwoListsOfString() {
+    val firstListOfStrings: MutableList<String> = mutableListOf("Hello", "World", "Kotlin")
+    val secondListOfStrings: MutableList<String> = mutableListOf("Bye", "Earth", "Java")
+    val thirdListOfStrings: MutableList<String> = mutableListOf()
+
+    for (index in firstListOfStrings.indices) {
+        thirdListOfStrings.add(index, firstListOfStrings[index])
+        thirdListOfStrings.add(index, secondListOfStrings[index])
+    }
+
+    println(thirdListOfStrings)
+}
+
+//10. Создайте список целых чисел и найдите в нем минимальный и максимальный элементы используя цикл.
+fun findMinAndMax() {
+    val numbers: List<Int> = listOf(10, 3, 8, 1, 15, 7, 12)
+
+    var minValue = numbers[0]
+    var maxValue = numbers[0]
+
+    for (i in 1 until numbers.size) {
+        val current = numbers[i]
+        if (current < minValue) {
+            minValue = current
+        }
+        if (current > maxValue) {
+            maxValue = current
+        }
+    }
+
+    println("Минимальный элемент: $minValue")
+    println("Максимальный элемент: $maxValue")
+}
+
+//11. Имея список целых чисел, создайте новый список,
+// содержащий только четные числа из исходного списка используя цикл.
+fun createNewList() {
+    val numbers: List<Int> = listOf(10, 3, 8, 1, 15, 7, 12)
+    val newList: MutableList<Int> = mutableListOf()
+
+    for (index in numbers.indices) {
+        if (numbers[index] % 2 == 0) {
+            newList.add(numbers[index])
+        }
+    }
+}
 
 
