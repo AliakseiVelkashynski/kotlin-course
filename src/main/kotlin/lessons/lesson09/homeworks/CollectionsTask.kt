@@ -192,4 +192,57 @@ fun createNewList() {
     }
 }
 
+// Работа с Множествами Set
+
+//1. Создайте пустое неизменяемое множество целых чисел.
+val emptySet: Set<Int> = setOf()
+
+//2. Создайте неизменяемое множество целых чисел, содержащее три различных элемента (например, 1, 2, 3).
+val emptySetWithNumbers: Set<Int> = setOf(1, 2, 3)
+
+//3. Создайте изменяемое множество строк и инициализируйте его несколькими значениями (например, "Kotlin", "Java", "Scala").
+val setOfStrings: MutableSet<String> = mutableSetOf("Kotlin", "Java", "Scala")
+
+//4. Имея изменяемое множество строк, добавьте в него новые элементы (например, "Swift", "Go").
+fun addElementsToSet() {
+    val setOfStrings: MutableSet<String> = mutableSetOf("Kotlin", "Java", "Scala")
+    setOfStrings.add("Swift")
+    setOfStrings.add("Go")
+    println(setOfStrings)
+}
+
+//5. Имея изменяемое множество целых чисел, удалите из него определенный элемент (например, 2).
+fun deleteElementFromSet() {
+    val setWithNumbers: MutableSet<Int> = mutableSetOf(1, 2, 3, 4, 5)
+    setWithNumbers.remove(2)
+}
+
+//6. Создайте множество целых чисел и используйте цикл для вывода каждого элемента на экран.
+fun printNumbersFromSet() {
+    val setWithNumbers: Set<Int> = setOf(1, 2, 3, 4, 5)
+    for (number in setWithNumbers) {
+        println(number)
+    }
+}
+
+//7. Создай функцию, которая принимает множество строк (set) и строку и проверяет, есть ли в множестве указанная строка.
+// Нужно вернуть булево значение true если строка есть. Реши задачу через цикл.
+fun containsString(stringSet: Set<String>, target: String): Boolean {
+    for (element in stringSet) {
+        if (element == target) {
+            return true
+        }
+    }
+    return false
+}
+
+//8. Создайте множество строк и конвертируйте его в изменяемый список строк с использованием цикла.
+fun convertSetToList() {
+    val setOfStrings: Set<String> = setOf("Go", "Java", "Scala")
+    val listOfStrings: MutableList<String> = mutableListOf()
+
+    for (string in setOfStrings) {
+        listOfStrings.add(string)
+    }
+}
 
