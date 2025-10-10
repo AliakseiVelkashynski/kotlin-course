@@ -145,16 +145,16 @@ fun mapWithPairs() {
 
 //Задачи на подбор оптимального типа для словаря
 //1. Словарь библиотека: Ключи - автор книги, значения - список книг
-val library: Map<String, List<String>> = mapOf()
+val library: Map<String, MutableList<String>> = mutableMapOf()
 
 //2. Справочник растений: Ключи - типы растений (например, "Цветы", "Деревья"), значения - списки названий растений
-val flowers: Map<String, List<String>> = mapOf()
+val flowers: Map<String, MutableList<String>> = mutableMapOf()
 
 //3. Четвертьфинала: Ключи - названия спортивных команд, значения - списки игроков каждой команды
 val championship: Map<String, Set<String>> = mapOf()
 
 //4. Курс лечения: Ключи - даты, значения - список препаратов принимаемых в дату
-val medicine: Map<String, List<String>> = mapOf()
+val medicine: Map<String, MutableList<String>> = mutableMapOf()
 
 //5. Словарь путешественника: Ключи - страны, значения - словари из городов со списком интересных мест.
-val trip: Map<String, Map<String, List<String>>> = mapOf()
+val trip: Map<String, MutableMap<String, MutableList<String>>> = mutableMapOf()
