@@ -245,3 +245,8 @@ fun numbersCategories(numbers: List<Int>): Map<String, List<Int>> {
         if (it % 2 == 0) "четные" else "нечетные"
     }
 }
+
+//29. Поиск первого подходящего элемента
+fun findFirst(numbers: List<Int?>, digit: Int): Int? {
+    return numbers.firstOrNull { it != null && it > digit }
+}
