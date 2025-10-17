@@ -231,3 +231,10 @@ fun analyzeGrades() {
 fun stringsCollection(list: List<String>): Map<Char, List<String>> {
     return list.map{ it.lowercase() }.groupBy { it.first() }
 }
+
+//27. Подсчёт средней длины слов в списке
+fun getAverageLengthOfWords(strings: List<String>): String {
+    val average = strings.map { it.length }.average()
+    val format = String.format("%.2f", average)
+    return format
+}
