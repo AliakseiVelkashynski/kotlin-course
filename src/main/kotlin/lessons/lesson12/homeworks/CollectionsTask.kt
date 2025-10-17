@@ -226,3 +226,8 @@ fun analyzeGrades() {
     val filteredGrades = grades.filter { it >= 60 }.sorted().take(3)
     println(filteredGrades)
 }
+
+//26. Создание каталога по первой букве
+fun stringsCollection(list: List<String>): Map<Char, List<String>> {
+    return list.map{ it.lowercase() }.groupBy { it.first() }
+}
