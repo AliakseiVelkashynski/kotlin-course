@@ -1,9 +1,5 @@
 package org.example.lessons.lesson12.homeworks
 
-fun main() {
-    checkExistingElement()
-}
-
 // Задачи на приведение коллекции к значению
 // 1. Проверить, что размер коллекции больше 5 элементов.
 fun checkSizeOfCollection() {
@@ -45,7 +41,7 @@ fun getElementOrCreate() {
 //5. Собрать коллекцию в строку
 fun collectionToString() {
     val numbers = listOf(-1, 2, -3, 4)
-    val stringList = numbers.map { it.toString() + "ok" }
+    val stringList = numbers.joinToString(separator = " ; ")
     println(stringList)
 }
 
@@ -93,3 +89,84 @@ fun checkExistingElement() {
 
 //Задачи на обработку коллекций
 //12. Отфильтровать коллекцию по диапазону 18-30
+fun filterCollectionFirst() {
+    val numbers = listOf(-1, 2, -3, 4, -5, 8, 18, 25, 29, 30, 264)
+    val filteredCollection = numbers.filter { it in 18..30 }
+    println(filteredCollection)
+}
+
+//13. Выбрать числа, которые не делятся на 2 и 3 одновременно
+fun filterCollection() {
+    val numbers = listOf(-1, 2, -3, 4, -5, 8, 6, 18, 25, 29, 30, 264)
+    val filteredCollection = numbers.filterNot { it % 2 == 0 && it % 3 == 0 }
+    println(filteredCollection)
+}
+
+//14. Очистить текстовую коллекцию от null элементов
+fun filterTextCollection() {
+    val numbers = listOf("one", "two", null, "three", null)
+    val filteredCollection = numbers.filterNotNull()
+    println(filteredCollection)
+}
+
+//15. Преобразовать текстовую коллекцию в коллекцию длин слов
+fun mapTextToLengthOfWordsCollection() {
+    val numbers = listOf("one", "four", "three")
+    val mappedCollection = numbers.map { it.length }
+    println(mappedCollection)
+}
+
+//16. Преобразовать текстовую коллекцию в мапу, где ключи - перевёрнутые слова, а значения - длина слов
+fun associateCollection() {
+    val numbers = listOf("one", "four", "three")
+    val associatedCollection = numbers.associate { it.reversed() to it.length}
+    println(associatedCollection)
+}
+
+//17. Отсортировать список в алфавитном порядке
+fun sortListInAlphabetOrder() {
+    val numbers = listOf("one", "four", "three")
+    val sortedCollection = numbers.sorted()
+    println(sortedCollection)
+}
+
+//18. Взять первые 3 элемента списка
+fun takeSomeElements() {
+    val numbers = listOf(-1, 2, -3, 4, -5, 8, 6, 18, 25, 29, 30, 264)
+    val filteredCollection = numbers.take(3)
+    println(filteredCollection)
+}
+
+//19. Распечатать квадраты элементов списка
+fun printSquares() {
+    val numbers = listOf(-1, 2, -3, 4, -5, 8, 6, 18, 25, 29, 30, 264)
+    val mappedCollection = numbers.map { println(it * it) }
+}
+
+//20. Группировать список по первой букве слов
+fun groupByList() {
+    val strings = listOf("one", "four", "three", "onion", "five", "tree")
+    val groupByCollection = strings.groupBy { it.first() }
+    println(groupByCollection)
+}
+
+//21. Очистить список от дублей
+fun distinctList() {
+    val strings = listOf("one", "four", "three", "one", "four", "three")
+    val distinctCollection = strings.distinct()
+    println(distinctCollection)
+}
+
+//22. Отсортировать список по убыванию
+fun sortDescending() {
+    val numbers = listOf(-1, 2, -3, 4, -5, 8, 6, 18, 25, 29, 30, 264)
+    val sortedCollection = numbers.sortedDescending()
+    println(sortedCollection)
+}
+
+//23. Взять последние 3 элемента списка
+fun getLast() {
+    val numbers = listOf(-1, 2, -3, 4, -5, 8, 6, 18, 25, 29, 30, 264)
+    val lastElements = numbers.takeLast(3)
+    println(lastElements)
+}
