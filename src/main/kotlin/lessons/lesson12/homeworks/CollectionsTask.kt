@@ -238,3 +238,10 @@ fun getAverageLengthOfWords(strings: List<String>): String {
     val format = String.format("%.2f", average)
     return format
 }
+
+//28. Категоризация чисел
+fun numbersCategories(numbers: List<Int>): Map<String, List<Int>> {
+    return numbers.distinct().sortedDescending().groupBy {
+        if (it % 2 == 0) "четные" else "нечетные"
+    }
+}
