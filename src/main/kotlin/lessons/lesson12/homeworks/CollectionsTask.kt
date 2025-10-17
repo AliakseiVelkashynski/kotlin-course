@@ -219,3 +219,10 @@ fun main() {
     val unique = listOf(5, 6, 7, 8, 9, 10)
     println(describeCollection(unique)) // "Уникальная"
 }*/
+
+//25. Анализ учебных оценок
+fun analyzeGrades() {
+    val grades = listOf(85, 58, 90, 74, 88, 67, 95, 92, 50, 42, 12)
+    val filteredGrades = grades.filter { it >= 60 }.sorted().take(3)
+    println(filteredGrades)
+}
