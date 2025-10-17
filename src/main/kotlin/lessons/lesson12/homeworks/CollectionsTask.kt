@@ -170,3 +170,52 @@ fun getLast() {
     val lastElements = numbers.takeLast(3)
     println(lastElements)
 }
+
+//24. Характеристика числовой коллекции
+fun describeCollection(numbers: Collection<Int>): String {
+    return when {
+        numbers.isEmpty() -> "Пусто"
+        numbers.size < 5 -> "Короткая"
+        numbers.firstOrNull() == 0 -> "Стартовая"
+        numbers.sum() > 10000 -> "Массивная"
+        numbers.average() == 10.0 -> "Сбалансированная"
+        numbers.joinToString("").length == 20 -> "Клейкая"
+        numbers.max() < -10 -> "Отрицательная"
+        numbers.min() > 1000 -> "Положительная"
+        numbers.contains(3) && numbers.contains(14) -> "Пи***тая"
+        else -> "Уникальная"
+    }
+}
+
+/*
+fun main() {
+    val emptyList = listOf<Int>()
+    println(describeCollection(emptyList)) // "Пусто"
+
+    val shortList = listOf(1, 2, 3, 4)
+    println(describeCollection(shortList)) // "Короткая"
+
+    val startsWithZero = listOf(0, 10, 20, 21, 22, 23)
+    println(describeCollection(startsWithZero)) // "Стартовая"
+
+    val largeSum = listOf(5000, 3000, 3000, 1, 2, 4)
+    println(describeCollection(largeSum)) // "Массивная"
+
+    val balanced = listOf(10, 10, 10, 10, 10, 10)
+    println(describeCollection(balanced)) // "Сбалансированная"
+
+    val sticky = listOf(1, 11, 111, 1111, 1111, 1111, 11)
+    println(describeCollection(sticky)) // "Клейкая"
+
+    val negative = listOf(-15, -14, -13, -16, -11, -12)
+    println(describeCollection(negative)) // "Отрицательная"
+
+    val positive = listOf(1001, 1002, 1003, 1005, 1006, 1007)
+    println(describeCollection(positive)) // "Положительная"
+
+    val pi = listOf(1, 2, 3, 14, 15)
+    println(describeCollection(pi)) // "Пи***тая"
+
+    val unique = listOf(5, 6, 7, 8, 9, 10)
+    println(describeCollection(unique)) // "Уникальная"
+}*/
