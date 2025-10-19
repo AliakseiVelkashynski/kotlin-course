@@ -1,9 +1,5 @@
 package org.example.lessons.lesson13.homeworks
 
-fun main() {
-    createCopy()
-}
-
 //1. Дан словарь с именем и временем выполнения каждого автоматизированного теста в секундах.
 // Определите среднее время выполнения теста.
 fun averageTestExecutionTime() {
@@ -108,3 +104,103 @@ fun createCopy() {
     println(updatedVersions)
 }
 
+//11. Используя словарь с настройками тестирования для различных мобильных устройств
+// (ключ — модель устройства, значение - строка с настройками),
+// получите настройки для конкретной модели или верните настройки по умолчанию.
+fun devicesConfig() {
+    val config = mapOf(
+        "galaxy" to "111",
+        "pixel" to "222",
+        "iphone" to "333"
+    )
+
+    val pixelConfig = config.getOrDefault("pixel", "000")
+    println(pixelConfig)
+}
+
+//12. Проверьте, содержит ли словарь с ошибками тестирования (ключ - код ошибки, значение - описание ошибки)
+// определенный код ошибки.
+fun checkErrors() {
+    val errorsOfTesting = mapOf(400 to "bar request", 500 to "internal server error", 403 to "unauth")
+    val containsKey: Boolean = errorsOfTesting.containsKey(501)
+    println(containsKey)
+}
+
+//13. Дан неизменяемый словарь, где ключи — это идентификаторы тестовых сценариев в формате "TestID_Version",
+// а значения — статусы выполнения этих тестов ("Passed", "Failed", "Skipped").
+// Отфильтруйте словарь, оставив только те сценарии, идентификаторы которых соответствуют определённой версии тестов,
+// то-есть в ключе содержится требуемая версия.
+fun getIdAndStatuses() {
+    val idAndStatuses = mapOf("TestID_Version1" to "Passed", "TestID_Version2" to "Failed", "TestID_Version3" to "Skipped")
+    val onlyVersion2Tests = idAndStatuses.filter { it.key.contains("version2", true) }
+    println(onlyVersion2Tests)
+}
+
+//14. У вас есть словарь, где ключи — это названия функциональных модулей приложения, а значения — результаты их тестирования.
+// Проверьте, есть ли модули с неудачным тестированием.
+fun getModulesAndStatuses() {
+    val modulesAndStatuses = mapOf("Auth" to "Passed", "Profile" to "Failed", "Payments" to "Skipped")
+    val onlyFailedTests = modulesAndStatuses.filter { it.value.equals("failed", true) }
+    println(onlyFailedTests)
+}
+
+//15. Добавьте в изменяемый словарь с настройками тестовой среды настройки из другого словаря.
+fun addConfigFromAnotherMap() {
+    val config = mutableMapOf(
+        "galaxy" to "111",
+        "pixel" to "222",
+        "iphone" to "333"
+    )
+
+    val config2 = mapOf(
+        "baseUrl" to "https://test.alfabank.ru",
+        "browserType" to "chrome",
+        "headless" to "true"
+    )
+
+    config.putAll(config2)
+    println(config)
+}
+
+//16. Объедините два неизменяемых словаря с данными о багах.
+fun joinTwoMaps() {
+    val idAndStatuses = mapOf("TestID_Version1" to "Passed", "TestID_Version2" to "Failed", "TestID_Version3" to "Skipped")
+    val modulesAndStatuses = mapOf("Auth" to "Passed", "Profile" to "Failed", "Payments" to "Skipped")
+    val joinedMap = idAndStatuses + modulesAndStatuses
+    println(joinedMap)
+}
+
+//17. Очистите изменяемый словарь с временными данными о последнем прогоне автоматизированных тестов.
+fun clearMap() {
+    val modulesAndStatuses = mutableMapOf("Auth" to "Passed", "Profile" to "Failed", "Payments" to "Skipped")
+    modulesAndStatuses.clear()
+    println(modulesAndStatuses)
+}
+
+//18. Исключите из отчета по автоматизированному тестированию те случаи,
+// где тесты были пропущены (имеют статус “skipped”). Ключи - название теста, значения - статус.
+fun skippedTests() {
+    val idAndStatuses = mapOf("TestID_Version1" to "Passed", "TestID_Version2" to "Failed", "TestID_Version3" to "Skipped")
+    val filterNotMap = idAndStatuses.filterNot { it.value == "Skipped" }
+    println(filterNotMap)
+}
+
+//19. Создайте копию словаря с конфигурациями тестирования удалив из него несколько конфигураций.
+fun createCopyOfConfig() {
+    val config = mapOf(
+        "baseUrl" to "https://test.alfabank.ru",
+        "browserType" to "chrome",
+        "headless" to "true"
+    )
+
+    val newMap = config - "headless" - "browserType"
+    println(newMap)
+}
+
+//20. Создайте отчет о тестировании, преобразовав словарь с результатами тестирования
+// (ключ — идентификатор теста, значение — результат) в список строк формата "Test ID: результат".
+fun createTestResultReport() {
+    val idAndStatuses = mapOf("TestID_Version1" to "Passed", "TestID_Version2" to "Failed", "TestID_Version3" to "Skipped")
+    val trr = idAndStatuses.map { "${it.key}: ${it.value}" }
+    println(trr)
+}
