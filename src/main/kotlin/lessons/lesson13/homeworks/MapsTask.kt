@@ -204,3 +204,87 @@ fun createTestResultReport() {
     val trr = idAndStatuses.map { "${it.key}: ${it.value}" }
     println(trr)
 }
+
+//21. Преобразуйте изменяемый словарь с результатами последнего тестирования в неизменяемый для архивации.
+fun mapForArchive() {
+    val idAndStatuses = mutableMapOf("TestID_Version1" to "Passed", "TestID_Version2" to "Failed", "TestID_Version3" to "Skipped")
+    val newMapForArchive: Map<String, String> = idAndStatuses.toMap()
+}
+
+//22. Преобразуйте словарь, содержащий числовой ID теста и данные о времени выполнения тестов,
+// заменив идентификаторы тестов на их строковый аналог (например через toString()).
+fun fromIntToString() {
+    val testResults = mapOf(1 to "10:00", 2 to "11:00", 3 to "12:00")
+    val mapWithStringsInKey = testResults.mapKeys { entry -> entry.key.toString() }
+    println(mapWithStringsInKey)
+}
+
+//23. Для словаря с оценками производительности различных версий приложения (ключи - строковая версия, значения - дробное число времени ответа сервера)
+// увеличьте каждую оценку на 10%, чтобы учесть новые условия тестирования.
+fun increasePerformanceMetrics() {
+    val originalMetrics: Map<String, Double> = mapOf(
+        "v1.0.0" to 120.5,
+        "v2.1.3" to 85.0,
+        "v3.0.0-beta" to 210.0
+    )
+
+    val mapValues = originalMetrics.mapValues { entry -> entry.value * 0.1 + entry.value }
+    println(mapValues)
+}
+
+//24. Проверьте, пуст ли словарь с ошибками компиляции тестов.
+fun emptyOrNot() {
+    val errorsWithEntries: Map<String?, String?> = mapOf("Error1" to "Не найден класс 'TestSuite'",
+        "Error2" to "Отсутствует импорт 'org.junit.Test'")
+
+    val isEmpty: Boolean = errorsWithEntries.isEmpty()
+}
+
+//25. Убедитесь, что словарь с результатами нагрузочного тестирования не пуст.
+fun emptyNot() {
+    val errorsWithEntries: Map<String?, String?> = mapOf("Error1" to "Не найден класс 'TestSuite'",
+        "Error2" to "Отсутствует импорт 'org.junit.Test'")
+
+    val isNotEmpty: Boolean = errorsWithEntries.isNotEmpty()
+}
+
+//26. Проверьте, прошли ли успешно все автоматизированные тесты в словаре с результатами.
+fun checkIfAllSuccessful() {
+    val testResults = mapOf(
+        "test_1" to "passed",
+        "test_2" to "failed",
+        "test_3" to "passed"
+    )
+
+    val allTestsPassed = testResults.all { it.value.equals("passed", ignoreCase = true) }
+}
+
+//27. Определите, содержит ли словарь с результатами тестирования хотя бы один тест с ошибкой.
+fun checkIfAnyFailed() {
+    val testResults = mapOf(
+        "test_1" to "passed",
+        "test_2" to "failed",
+        "test_3" to "passed"
+    )
+
+    val isAnyFailed = testResults.any() { it.value.equals("failed", ignoreCase = true) }
+}
+
+//28. Отфильтруйте словарь с результатами тестирования сервисов, оставив только те тесты,
+// которые не прошли успешно и содержат в названии “optional”.
+fun filterSomeTests() {
+    val testResults = mapOf(
+        "test_optional_1" to "failed",
+        "test_mandatory" to "passed",
+        "optional_test_2" to "Failed",
+        "core_test" to "failed"
+    )
+
+    val mapAfterFilter = testResults.filter { (testName, status) ->
+        testName.contains(
+            "optional",
+            ignoreCase = true
+        ) && status.equals("failed", ignoreCase = true)
+    }
+    println(mapAfterFilter)
+}
