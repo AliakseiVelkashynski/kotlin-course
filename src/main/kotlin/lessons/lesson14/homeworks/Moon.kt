@@ -12,7 +12,6 @@ object Moon {
     }
 }
 
-
 fun main() {
     Moon.showPhase()
 }
