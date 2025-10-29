@@ -2,10 +2,6 @@ package org.example.lessons.lesson16.homeworks
 
 abstract class Shape {
     open fun area(): Double = 0.0
-
-    fun printArea() {
-        println("Площадь: ${String.format("%.2f", area())}")
-    }
 }
 
 class Circle(private val radius: Double) : Shape() {
@@ -38,6 +34,6 @@ fun main() {
     )
 
     shapes.forEach { shape ->
-        shape.printArea()
+        println(shape.area())
     }
 }
